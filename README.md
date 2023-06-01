@@ -1,9 +1,11 @@
 # Logger-low-power
-Un repositorio para un registrador de datos de campo basado en el ATMega 328
+Un repositorio para un registrador de datos de campo basado en el ATMega 328.
+
+
+El proyecto busca hacer que cuestiones científicas que involucran mucho dinero puedan hacerse con un costo ***mucho menor***. En efecto, los loggers más robustos son muy caros, la cantidad de sensores disponibles es gigantesca (desde baratos a caros) y el problema de siempre es testearlos en el campo.
 
 Luego de muchas vueltas con Arduinos en el campo, el proyecto busca crear un gadget que tenga un consumo lo suficientemente bajo como para vivir un año a baterías.
 
-El proyecto busca hacer que cuestiones científicas que involucran mucho dinero puedan hacerse con un costo ***mucho menor***.
 
 Está largamente inspirado en el [Cave Pearl Project]([https://www.google.com](https://thecavepearlproject.org/)) de Ed. Mallon, pero con componentes sueltos, es decir, sin módulos. Esto se asienta en las siguientes consideraciones:
 
