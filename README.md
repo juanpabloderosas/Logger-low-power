@@ -1,4 +1,6 @@
 # Logger-low-power
+Es sólo para probar...
+
 Un repositorio para un registrador de datos de campo basado en el ATMega 328.
 
 
