@@ -13,11 +13,11 @@ Un registrador de datos es un aparato electrónico que logra que un sensor tome 
 1. Debe funcionar bajo grandes amplitudes térmicas y condiciones de humedad ambiente. En en el mejor de los casos, debe ser *sumergible*.
 
 
-Los registradores de datos privativos son una opción testeada (cerrada). Generalmente, estos registradores tienen cierta especificidad del diseño para diferentes sensores, integrando sensores y registradores en el mismo producto ([OnSet](https://www.onsetcomp.com/), que posee las marcas HOBO e InTemp); algunos fabricantes disponen de registradores multipropósito ([Campbell Scientific](https://www.campbellsci.com/data-loggers)), que disponen de diferentes protocolos para conectar sensores varios.
+Los registradores de datos privativos son una opción testeada (cerrada). Generalmente, estos registradores tienen cierta especificidad del diseño para diferentes sensores, integrando sensores y registradores en el mismo producto. Ejemplos conocidos son [OnSet](https://www.onsetcomp.com/), que posee las marcas HOBO e InTemp, que son registradores de variables ambientales con los sensores integrados; otros fabricantes disponen de registradores ambientales multipropósito, como varias líneas de [Campbell Scientific](https://www.campbellsci.com/data-loggers)). Estos últimos registradores no tienen sensores incorporados y disponen de una *bornera* para comunicarse con los sensores mediante diferentes protocolos.
 
 Uno de los problemas asociados a los registradores privativos es que presentan pocas posibilidades de modificación y habitualmente vienen acompañados por software específico (cerrado). Además, el precio en USD resulta elevado --o elevadísimo, según el registrador-- comparados con los presupuestos que se manejan para investigación en los países en vías de desarrollo, como los países sudamericanos. 
 
-Por otra parte, los sensores electrónicos de bajo costo son una realidad que tiene al menos 15 años. Los hay de muchos tipos y para diferentes magnitudes. Este tipo de sensores, sumados a una placa Arduino, podrían ser una opción realmente asequible para utilizar con los presupuestos de investigación disponibles, logrando hacer realidad medidas ambientales de bajo costo. 
+Por otra parte, los sensores electrónicos de bajo costo son una realidad que tiene al menos 15 años. Los hay de muchos tipos y para diferentes magnitudes. Este tipo de sensores, sumados a una placa Arduino, podrían ser una opción realmente asequible para utilizar con los presupuestos de investigación disponibles, logrando hacer realidad medidas ambientales de bajo costo. A pesar de los esfuerzos, persisten problemas con las placas Arduino, relacionados básicamente con el consumo.
 
 ## El tiempo es tirano: estrategias habituales en la academia para la utilización de sensores de bajo costo y hardware abierto
 
@@ -51,7 +51,8 @@ El registrador de datos propuesto tiene algunos componentes que pueden conseguir
 1. Microcontrolador ATMega 328. 
 2. RTC DS 3231.
 3. Serial Flash Memory Windbond W25Q64FV (8 Mbytes de almacenamiento).
-4. CP2102
+4. Un divisor de tensión para medir el voltaje de las baterías (hasta ~6.6V)
+5. CP2102
 Este diseño tiene que completarse con un CP2102 para programar y obtener los datos de cada registrador.
 
 
@@ -74,9 +75,12 @@ Una de las grandes diferencias con los registradores diseñados a partir de mód
 |:-:|:-: | :-: |:-:|:-:|
 |1|/CS|/CS|6|D4|
 |2|SDO(ex MISO)|SDI(*ex MISO*)|18|D12|
-|3|WP|VCC|13|D7|
+|3|WP|Vcc|Vcc|Vcc|
 |4|GND|GND|GND|GND|
 |5|SDI(*ex MOSI*)|SDO(*ex MOSI*)|17|D11|
 |6|CLK|SCK|19|D13|
 |7|/HOLD|VCC|VCC|VCC|
 |8| Vcc |Vcc |Vcc|Vcc|
+
+
+
